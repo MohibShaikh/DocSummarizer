@@ -14,6 +14,8 @@ A modern, secure desktop application that connects directly to Anthropic's Claud
 - ⚡ **Real-time Chat**: Instant responses with typing indicators
 - 🔍 **Document Analysis**: AI can read and analyze your uploaded documents
 
+<img width="1335" height="853" alt="image" src="https://github.com/user-attachments/assets/9edd2001-8bcb-4517-8611-f38cf6a7b6e7" />
+
 ## 🚀 Quick Start
 
 ### Prerequisites
