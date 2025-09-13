@@ -1,0 +1,465 @@
+.api-key-manager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  transition: all 0.3s ease;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.api-key-manager::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.dark .api-key-manager {
+  background: #0f172a;
+}
+
+.api-key-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.api-key-header {
+  margin-bottom: 2rem;
+}
+
+.api-key-icon {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.app-logo:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.api-key-header h1 {
+  color: #111827;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+}
+
+.dark .api-key-header h1 {
+  color: #f1f5f9;
+}
+
+.api-key-header p {
+  color: #6b7280;
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin: 0;
+  transition: color 0.3s ease;
+  line-height: 1.5;
+}
+
+.dark .api-key-header p {
+  color: #94a3b8;
+}
+
+.api-key-form-container {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+
+.api-key-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.api-key-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: white;
+  color: #1f2937;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.api-key-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.api-key-input.error {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.api-key-input:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.dark .api-key-input {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
+}
+
+.dark .api-key-input:focus {
+  border-color: #3b82f6;
+}
+
+.dark .api-key-input:disabled {
+  background-color: #374151;
+}
+
+.api-key-input::placeholder {
+  color: #9ca3af;
+}
+
+.dark .api-key-input::placeholder {
+  color: #6b7280;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.api-key-submit {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  letter-spacing: 0;
+}
+
+.api-key-submit:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.api-key-submit:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.loading-spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.api-key-features {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.dark .feature-item {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  transition: all 0.3s ease;
+}
+
+.dark .feature-icon {
+  background: #374151;
+}
+
+.feature-icon-svg {
+  width: 20px;
+  height: 20px;
+  color: #6b7280;
+  transition: color 0.3s ease;
+}
+
+.dark .feature-icon-svg {
+  color: #9ca3af;
+}
+
+.feature-item:hover .feature-icon {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.dark .feature-item:hover .feature-icon {
+  background: #4b5563;
+}
+
+.feature-item:hover .feature-icon-svg {
+  color: #3b82f6;
+}
+
+.feature-text h4 {
+  color: #111827;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  transition: color 0.3s ease;
+  letter-spacing: -0.01em;
+}
+
+.dark .feature-text h4 {
+  color: #f1f5f9;
+}
+
+.feature-text p {
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+.dark .feature-text p {
+  color: #94a3b8;
+}
+
+.api-key-help {
+  text-align: center;
+}
+
+.api-key-help p {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.dark .api-key-help p {
+  color: #94a3b8;
+}
+
+.help-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.help-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .api-key-welcome {
+    padding: 1.5rem;
+  }
+  
+  .api-key-header h1 {
+    font-size: 2rem;
+  }
+  
+  .api-key-header p {
+    font-size: 1rem;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .feature-item {
+    padding: 0.75rem;
+  }
+}
+
+/* iOS and mobile optimizations */
+@media (max-width: 480px) {
+  .api-key-manager {
+    padding: 1rem 0.5rem;
+  }
+  
+  .api-key-welcome {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .app-logo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .api-key-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .api-key-header p {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .api-key-form-container {
+    padding: 1rem 0.75rem;
+  }
+  
+  .api-key-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+    padding: 0.75rem;
+  }
+  
+  .btn-primary {
+    min-height: 44px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .feature-grid {
+    gap: 0.75rem;
+  }
+  
+  .feature-item {
+    padding: 0.75rem;
+    min-height: 44px;
+  }
+  
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .feature-text h4 {
+    font-size: 0.875rem;
+  }
+  
+  .feature-text p {
+    font-size: 0.75rem;
+  }
+  
+  .api-key-help {
+    padding: 0.75rem;
+  }
+  
+  .api-key-help p {
+    font-size: 0.75rem;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .api-key-input {
+    /* Prevent zoom on input focus */
+    -webkit-text-size-adjust: 100%;
+    font-size: 16px !important;
+  }
+  
+  .btn-primary {
+    /* Fix touch targets on iOS */
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Fix input styling on iOS */
+  .api-key-input {
+    -webkit-appearance: none;
+    border-radius: 12px;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .api-key-input {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .feature-item {
+    min-height: 44px;
+  }
+}

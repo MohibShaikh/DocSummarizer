@@ -1,0 +1,360 @@
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.dark .app {
+  background: #0f172a;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dark .app-header {
+  background: #1e293b;
+  border-bottom-color: #334155;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-title {
+  text-align: left;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 1px solid rgba(203, 213, 225, 0.5);
+  border-radius: 12px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.theme-toggle:hover {
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.dark .theme-toggle {
+  background: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.dark .theme-toggle:hover {
+  background: #4b5563;
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.dark .theme-icon {
+  color: #9ca3af;
+}
+
+.theme-toggle:hover .theme-icon {
+  color: #3b82f6;
+}
+
+.app-header h1 {
+  color: #111827;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .app-header h1 {
+  background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.app-header p {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  letter-spacing: 0;
+}
+
+.dark .app-header p {
+  color: #94a3b8;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  background: white;
+  transition: background-color 0.3s ease;
+}
+
+.dark .app-main {
+  background: #0f172a;
+}
+
+.main-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  width: 280px;
+  background: #f9fafb;
+  border-right: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.dark .sidebar {
+  background: #1e293b;
+  border-right-color: #334155;
+}
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  transition: background-color 0.3s ease;
+}
+
+.dark .chat-area {
+  background: #0f172a;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  gap: 1rem;
+  transition: color 0.3s ease;
+}
+
+.dark .loading {
+  color: #94a3b8;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.api-key-info {
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.dark .api-key-info {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+.api-key-info p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.dark .api-key-info p {
+  color: #94a3b8;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .app-main {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+  }
+  
+  .app-header h1 {
+    font-size: 1.3rem;
+  }
+  
+  .sidebar {
+    padding: 1rem;
+  }
+}
+
+/* iOS and mobile optimizations */
+@media (max-width: 480px) {
+  .app {
+    font-size: 14px;
+  }
+  
+  .app-header {
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .header-title {
+    text-align: center;
+  }
+  
+  .app-header h1 {
+    font-size: 1.1rem;
+    margin-bottom: 0.125rem;
+  }
+  
+  .app-header p {
+    font-size: 0.75rem;
+  }
+  
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    padding: 0.375rem;
+  }
+  
+  .app-main {
+    padding: 0.5rem;
+  }
+  
+  .main-content {
+    gap: 0.5rem;
+  }
+  
+  .sidebar {
+    padding: 0.75rem;
+    border-radius: 8px;
+  }
+  
+  .chat-area {
+    border-radius: 8px;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .app {
+    /* Prevent zoom on input focus */
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  .theme-toggle {
+    /* Fix touch targets on iOS */
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Fix viewport issues on iOS */
+  .app-header {
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+  }
+  
+  .app-main {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .theme-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .btn {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+  }
+  
+  .api-key-input {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
