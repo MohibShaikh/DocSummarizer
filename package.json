@@ -12,7 +12,16 @@
     "electron": "electron .",
     "electron-dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
     "electron-pack": "electron-builder",
-    "preelectron-pack": "npm run build"
+    "preelectron-pack": "npm run build",
+    "lint": "eslint src/ --ext .js,.jsx",
+    "lint:fix": "eslint src/ --ext .js,.jsx --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
+    "audit": "npm audit --audit-level=moderate",
+    "audit:fix": "npm audit fix",
+    "clean": "rimraf build dist",
+    "prebuild": "npm run clean",
+    "postbuild": "npm run audit"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.24.3",
@@ -27,7 +36,10 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "electron-builder": "^24.6.4",
-    "wait-on": "^7.2.0"
+    "wait-on": "^7.2.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5"
   },
   "browserslist": {
     "production": [
