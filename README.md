@@ -28,7 +28,7 @@ A modern, secure desktop application that connects directly to Anthropic's Claud
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/MohibShaikh/DocSummarizer
    cd upworwerk
    ```
 
